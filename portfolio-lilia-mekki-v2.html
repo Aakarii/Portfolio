@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lilia Mekki — Portfolio Créatif 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Bricolage+Grotesque:opsz,wght@12..96,200;12..96,400;12..96,600;12..96,800&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --o:#FF3D1F;
+  --y:#FFD84D;
+  --blk:#0F0E0D;
+  --cream:#FAF6EF;
+  --paper:#F0EAE0;
+  --mid:#B0A898;
+}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cream);
+  color:var(--blk);
+  font-family:'Bricolage Grotesque',sans-serif;
+  overflow-x:hidden;
+  cursor:none;
+}
+
+/* CUSTOM CURSOR */
+#cursor{position:fixed;width:14px;height:14px;background:var(--o);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform 0.1s,width 0.2s,height 0.2s,background 0.2s;mix-blend-mode:multiply}
+#cursor.big{width:60px;height:60px;background:var(--y);mix-blend-mode:multiply}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  padding:1rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;
+  mix-blend-mode:normal;
+}
+.nav-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:2rem;letter-spacing:0.05em;
+  color:var(--blk);text-decoration:none;
+  background:var(--cream);padding:0.1rem 0.5rem;
+}
+.nav-r{display:flex;gap:1.2rem;align-items:center;background:var(--cream);padding:0.3rem 1rem}
+.nav-r a{
+  text-decoration:none;font-size:0.7rem;font-weight:600;
+  letter-spacing:0.15em;text-transform:uppercase;color:var(--blk);
+  opacity:0.55;transition:opacity 0.2s
+}
+.nav-r a:hover{opacity:1}
+.nav-dispo{
+  background:var(--o);color:white;
+  font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;
+  padding:0.4rem 0.8rem;
+}
+
+/* ───── HERO ───── */
+.hero{
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  position:relative;overflow:hidden;
+}
+.hero-left{
+  background:var(--blk);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:7rem 2.5rem 3rem;
+  position:relative;overflow:hidden;
+}
+.hero-left::before{
+  content:'LM';
+  position:absolute;top:-2rem;right:-1rem;
+  font-family:'Bebas Neue',sans-serif;
+  font-size:22rem;color:white;opacity:0.03;
+  line-height:1;pointer-events:none;
+}
+.hero-tag{
+  display:inline-block;border:1px solid rgba(255,255,255,0.3);
+  color:rgba(255,255,255,0.6);font-size:0.65rem;
+  letter-spacing:0.2em;text-transform:uppercase;font-weight:600;
+  padding:0.35rem 0.8rem;margin-bottom:1.5rem;width:fit-content;
+}
+.hero-name{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(5.5rem,10vw,9.5rem);
+  line-height:0.9;color:white;
+  margin-bottom:2rem;
+}
+.hero-name span{color:var(--o)}
+.hero-sub{
+  color:rgba(255,255,255,0.5);font-size:0.85rem;
+  line-height:1.6;font-weight:300;max-width:320px;
+  margin-bottom:2.5rem;
+}
+.hero-btns{display:flex;gap:0.8rem;flex-wrap:wrap}
+.btn{
+  display:inline-block;text-decoration:none;
+  padding:0.9rem 1.8rem;font-size:0.75rem;
+  font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  transition:all 0.2s;border:2px solid transparent;cursor:none;
+}
+.btn-o{background:var(--o);color:white}
+.btn-o:hover{background:var(--y);color:var(--blk)}
+.btn-ghost{border-color:rgba(255,255,255,0.3);color:white}
+.btn-ghost:hover{background:white;color:var(--blk);border-color:white}
+
+.hero-right{
+  background:var(--o);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:7rem 2.5rem 3rem;
+  position:relative;overflow:hidden;
+}
+.hero-right::after{
+  content:'✦';
+  position:absolute;top:3rem;right:2rem;
+  font-size:8rem;color:rgba(0,0,0,0.08);
+  animation:spin 20s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+.hero-badge{
+  position:absolute;top:5.5rem;left:50%;transform:translateX(-50%) rotate(-3deg);
+  background:var(--y);
+  border:2px solid var(--blk);
+  padding:1rem 1.4rem;
+  font-family:'Syne',sans-serif;
+  font-size:0.75rem;font-weight:700;line-height:1.5;
+  text-align:center;white-space:nowrap;
+  box-shadow:4px 4px 0 var(--blk);
+  z-index:5;
+}
+.hero-bigtext{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(4rem,8vw,7rem);
+  line-height:0.9;color:var(--blk);
+  mix-blend-mode:multiply;
+}
+.hero-scroll{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:0.6rem;
+  color:rgba(255,255,255,0.4);font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;
+  font-weight:600;
+}
+.scroll-bar{width:1px;height:50px;background:rgba(255,255,255,0.25);animation:grow 2s ease-in-out infinite}
+@keyframes grow{0%,100%{transform:scaleY(0.2)}50%{transform:scaleY(1)}}
+
+/* MARQUEE */
+.marquee-wrap{
+  background:var(--y);border-top:2px solid var(--blk);border-bottom:2px solid var(--blk);
+  overflow:hidden;padding:0.8rem 0;white-space:nowrap;
+}
+.marquee-track{
+  display:inline-flex;gap:2rem;
+  animation:marquee 18s linear infinite;
+}
+.marquee-track span{
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;
+  letter-spacing:0.1em;color:var(--blk);
+}
+.marquee-track .dot{color:var(--o)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:5rem 2.5rem}
+.s-label{
+  font-size:0.65rem;font-weight:700;letter-spacing:0.25em;text-transform:uppercase;
+  color:var(--o);margin-bottom:0.6rem;
+}
+.s-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.5rem,7vw,5.5rem);
+  line-height:0.95;letter-spacing:0.02em;margin-bottom:3rem;
+}
+
+/* ABOUT */
+#about{background:var(--paper);position:relative;overflow:hidden}
+#about::before{
+  content:'QUI ?';
+  position:absolute;right:-2rem;top:50%;transform:translateY(-50%);
+  font-family:'Bebas Neue',sans-serif;font-size:18rem;
+  color:rgba(0,0,0,0.04);line-height:1;pointer-events:none;white-space:nowrap;
+}
+.about-grid{display:grid;grid-template-columns:1.2fr 0.8fr;gap:4rem;align-items:start;position:relative;z-index:1}
+.about-body{font-size:1rem;line-height:1.85;font-weight:300;color:rgba(15,14,13,0.75)}
+.about-body p+p{margin-top:1.2rem}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--blk)}
+.stat{background:var(--paper);padding:1.4rem 1.2rem}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--o);line-height:1}
+.stat-l{font-size:0.65rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(15,14,13,0.45);margin-top:0.3rem}
+
+/* OUTILS */
+#outils{background:var(--blk);color:var(--cream)}
+#outils .s-title{color:var(--cream)}
+.tools-cats{display:flex;flex-direction:column;gap:0;border:1px solid rgba(255,255,255,0.1)}
+.tool-row{
+  display:grid;grid-template-columns:180px 1fr;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.tool-row:last-child{border-bottom:none}
+.tool-cat-name{
+  padding:1.8rem 1.5rem;
+  font-family:'Bebas Neue',sans-serif;font-size:1.1rem;
+  letter-spacing:0.08em;color:var(--o);
+  border-right:1px solid rgba(255,255,255,0.08);
+  display:flex;align-items:center;
+}
+.tool-items{
+  padding:1.5rem 2rem;
+  display:flex;flex-wrap:wrap;gap:0.8rem;align-items:center;
+}
+.tool-chip{
+  display:flex;align-items:center;gap:0.5rem;
+  border:1px solid rgba(255,255,255,0.15);
+  padding:0.45rem 1rem;font-size:0.8rem;font-weight:500;
+  color:rgba(255,255,255,0.75);transition:all 0.2s;cursor:none;
+}
+.tool-chip:hover{background:var(--o);border-color:var(--o);color:white}
+.tool-chip img{width:18px;height:18px;object-fit:contain;border-radius:3px}
+
+/* SERVICES */
+#services{background:var(--cream);position:relative}
+.services-big{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;background:var(--blk);border:2px solid var(--blk);
+  margin-bottom:2px;
+}
+.svc{
+  background:var(--cream);padding:2.5rem 1.8rem;
+  position:relative;overflow:hidden;transition:background 0.25s;cursor:none;
+}
+.svc:hover{background:var(--o)}
+.svc:hover .svc-title{color:white}
+.svc:hover .svc-desc{color:rgba(255,255,255,0.75)}
+.svc:hover .svc-n{color:rgba(255,255,255,0.15)}
+.svc-n{
+  font-family:'Bebas Neue',sans-serif;font-size:5rem;
+  line-height:1;color:var(--o);opacity:0.15;
+  position:absolute;top:0.5rem;right:1rem;
+  transition:color 0.25s;
+}
+.svc-title{
+  font-family:'Bebas Neue',sans-serif;font-size:1.5rem;
+  letter-spacing:0.04em;margin-bottom:0.7rem;transition:color 0.25s;
+}
+.svc-desc{font-size:0.82rem;line-height:1.65;color:rgba(15,14,13,0.55);font-weight:300;transition:color 0.25s}
+
+/* APPORT SECTION — BIG */
+.apport-block{
+  background:var(--blk);padding:3.5rem;
+  border:2px solid var(--blk);
+  display:grid;grid-template-columns:1fr 2fr;gap:3rem;align-items:center;
+}
+.apport-hl{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.5rem,4vw,3.5rem);
+  line-height:1;color:var(--o);
+}
+.apport-text{
+  font-size:0.95rem;line-height:1.85;
+  color:rgba(250,246,239,0.65);font-weight:300;
+}
+
+/* CREATIONS */
+#creations{background:var(--paper);padding-bottom:4rem}
+.projects-mosaic {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+.proj {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4/3; /* tous les blocs mêmes proportions */
+  background: var(--blk);
+}
+.proj img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#lb-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain; /* garde le ratio et pas de rognage */
+}
+
+.proj:hover img{transform:scale(1.06);filter:brightness(0.6)}
+.proj-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(15,14,13,0.9) 0%, rgba(15,14,13,0.1) 60%, transparent 100%);
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:1.5rem;
+  opacity:0;transition:opacity 0.3s;
+}
+.proj:hover .proj-overlay{opacity:1}
+.proj-always{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1.2rem 1.5rem;
+  background:linear-gradient(to top, rgba(15,14,13,0.85) 0%, transparent 100%);
+  transition:opacity 0.3s;
+}
+.proj:hover .proj-always{opacity:0}
+.proj-num{
+  font-family:'Bebas Neue',sans-serif;font-size:0.85rem;
+  color:var(--o);letter-spacing:0.15em;margin-bottom:0.2rem;
+}
+.proj-t{
+  font-family:'Bebas Neue',sans-serif;font-size:1.3rem;
+  color:white;line-height:1.1;
+}
+.proj-type{font-size:0.68rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--y);font-weight:700;margin-bottom:0.3rem}
+.proj-ctx{font-size:0.65rem;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.45);font-weight:600;margin-bottom:0.5rem}
+.proj-desc{font-size:0.78rem;line-height:1.6;color:rgba(255,255,255,0.7);font-weight:300}
+.proj-placeholder{
+  width:100%;height:100%;
+  background:repeating-linear-gradient(45deg,#1a1814,#1a1814 10px,#222018 10px,#222018 20px);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1rem;
+}
+.proj-placeholder-icon{font-size:2.5rem;opacity:0.3}
+.proj-placeholder-text{font-family:'Bebas Neue',sans-serif;font-size:1rem;letter-spacing:0.2em;color:rgba(255,255,255,0.2);text-align:center;padding:0 1rem}
+
+/* LIGHTBOX */
+#lightbox{
+  position:fixed;inset:0;z-index:500;
+  background:rgba(15,14,13,0.97);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;
+}
+#lightbox.active{opacity:1;pointer-events:all}
+#lightbox img{
+  max-width:90vw;max-height:88vh;
+  object-fit:contain;
+  transform:scale(0.93);transition:transform 0.3s;
+}
+#lightbox.active img{transform:scale(1)}
+#lb-close{
+  position:absolute;top:1.5rem;right:2rem;
+  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;
+  color:white;letter-spacing:0.15em;cursor:none;opacity:0.6;
+  transition:opacity 0.2s;padding:0.5rem;
+}
+#lb-close:hover{opacity:1}
+#lb-info{
+  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+  text-align:center;
+}
+#lb-title{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:white;letter-spacing:0.05em}
+#lb-sub{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-top:0.3rem}
+#lb-nav{display:flex;gap:1rem;justify-content:center;margin-top:1rem}
+.lb-arr{
+  font-family:'Bebas Neue',sans-serif;font-size:1rem;
+  letter-spacing:0.15em;color:white;
+  border:1px solid rgba(255,255,255,0.2);
+  padding:0.5rem 1.2rem;cursor:none;
+  transition:all 0.2s;
+}
+.lb-arr:hover{background:var(--o);border-color:var(--o)}
+
+/* CONTACT */
+#contact{
+  background:var(--o);color:white;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:4rem;align-items:center;
+  position:relative;overflow:hidden;
+}
+#contact::before{
+  content:'ON TRAVAILLE ?';
+  position:absolute;bottom:-2rem;left:-1rem;
+  font-family:'Bebas Neue',sans-serif;font-size:9rem;
+  color:rgba(0,0,0,0.07);white-space:nowrap;pointer-events:none;
+}
+.contact-left .s-title{color:white;margin-bottom:0.8rem}
+.contact-sub{font-size:1rem;font-weight:300;opacity:0.8;line-height:1.7;margin-bottom:2.5rem}
+.contact-links{display:flex;flex-direction:column;gap:0.8rem}
+.contact-link{
+  display:inline-flex;align-items:center;gap:0.8rem;
+  text-decoration:none;color:white;font-weight:600;font-size:0.85rem;
+  padding:1rem 1.5rem;border:2px solid rgba(255,255,255,0.35);
+  transition:all 0.2s;letter-spacing:0.06em;cursor:none;width:fit-content;
+}
+.contact-link:hover{background:white;color:var(--o);border-color:white}
+.contact-right{position:relative;z-index:1}
+.contact-info{display:flex;flex-direction:column;gap:1.2rem}
+.ci{border-bottom:1px solid rgba(255,255,255,0.15);padding-bottom:1.2rem}
+.ci:last-child{border-bottom:none;padding-bottom:0}
+.ci-label{font-size:0.62rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;opacity:0.5;margin-bottom:0.3rem}
+.ci-val{font-family:'Syne',sans-serif;font-size:1rem;font-weight:600;opacity:0.95}
+
+/* FOOTER */
+footer{
+  background:var(--blk);color:rgba(250,246,239,0.3);
+  padding:1.5rem 2.5rem;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:600;
+}
+footer span{color:var(--o)}
+
+/* SCROLL ANIM */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.1s}
+.reveal-d2{transition-delay:0.2s}
+.reveal-d3{transition-delay:0.3s}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-right{display:none}
+  .about-grid{grid-template-columns:1fr}
+  .services-big{grid-template-columns:1fr 1fr}
+  .apport-block{grid-template-columns:1fr}
+  .projects-mosaic{grid-template-columns:1fr 1fr}
+  .proj.wide{grid-column:span 2}
+  #contact{grid-template-columns:1fr}
+  .tool-row{grid-template-columns:1fr}
+  .tool-cat-name{border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
+}
+@media(max-width:580px){
+  section{padding:3.5rem 1.2rem}
+  .services-big{grid-template-columns:1fr}
+  .projects-mosaic{grid-template-columns:1fr}
+  .proj.wide{grid-column:span 1;aspect-ratio:3/4}
+  nav{padding:1rem 1.2rem}
+  .hero-left{padding:6rem 1.5rem 2.5rem}
+}
+</style>
+</head>
+<body>
+
+<div id="cursor"></div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <div id="lb-close">✕ Fermer</div>
+  <img id="lb-img" src="" alt="">
+  <div id="lb-info">
+    <div id="lb-title"></div>
+    <div id="lb-sub"></div>
+    <div id="lb-nav">
+      <div class="lb-arr" id="lb-prev">← Préc.</div>
+      <div class="lb-arr" id="lb-next">Suiv. →</div>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">LM.</a>
+  <div class="nav-r">
+    <a href="#about">Intro</a>
+    <a href="#outils">Outils</a>
+    <a href="#services">Services</a>
+    <a href="#creations">Créations</a>
+    <a href="#contact">Contact</a>
+    <span class="nav-dispo">✦ Dispo Sept. 2026</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-tag">✦ Portfolio Créatif 2026</div>
+    <h1 class="hero-name">LILIA<br><span>MEKKI</span></h1>
+    <p class="hero-sub">Passionnée de graphisme & communication visuelle. En recherche d'alternance BTS ERPC — rentrée septembre 2026.</p>
+    <div class="hero-btns">
+      <a href="#creations" class="btn btn-o">Voir mes créations →</a>
+      <a href="#contact" class="btn btn-ghost">Me contacter</a>
+    </div>
+    <div class="hero-scroll"><div class="scroll-bar"></div>Scroll</div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-badge">🎨 BTS ERPC<br>2026 / 2027<br>DISPO EN ALTERNANCE</div>
+    <div class="hero-bigtext">GRAPH-<br>ISME &amp;<br>COMM.<br>VISUELLE</div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span>Graphisme</span><span class="dot">✦</span>
+    <span>Communication Print</span><span class="dot">✦</span>
+    <span>Identité Visuelle</span><span class="dot">✦</span>
+    <span>Photographie</span><span class="dot">✦</span>
+    <span>Montage Vidéo</span><span class="dot">✦</span>
+    <span>UI/UX</span><span class="dot">✦</span>
+    <span>Web Design</span><span class="dot">✦</span>
+    <span>BTS ERPC 2026</span><span class="dot">✦</span>
+    <span>Graphisme</span><span class="dot">✦</span>
+    <span>Communication Print</span><span class="dot">✦</span>
+    <span>Identité Visuelle</span><span class="dot">✦</span>
+    <span>Photographie</span><span class="dot">✦</span>
+    <span>Montage Vidéo</span><span class="dot">✦</span>
+    <span>UI/UX</span><span class="dot">✦</span>
+    <span>Web Design</span><span class="dot">✦</span>
+    <span>BTS ERPC 2026</span><span class="dot">✦</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="reveal">
+      <div class="s-label">Qui suis-je ?</div>
+      <h2 class="s-title">BONJOUR,<br>C'EST LILIA !</h2>
+      <div class="about-body">
+        <p>Passionnée par le design visuel et les univers numériques, je m’intéresse à la création de contenus graphiques et au développement de projets visuels.</p>
+        <p>Je consacre beaucoup de temps à expérimenter et à enrichir mes compétences en graphisme, mise en page, photographie et création numérique.</p>
+        <p>Mon meilleur allié ? Mon PC, pour le graphisme mais aussi mes hobbies : jeux vidéo, musique et montage vidéo.</p>
+        <p>Curieuse et créative, je cherche constamment à enrichir mon univers visuel et à apprendre de nouvelles techniques pour progresser dans le domaine graphique.</p>
+      </div>
+    </div>
+    <div class="reveal reveal-d2">
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-n">BTS</div><div class="stat-l">Formation</div></div>
+        <div class="stat"><div class="stat-n">ERPC</div><div class="stat-l">Spécialité</div></div>
+        <div class="stat"><div class="stat-n">ALTERNANCE</div><div class="stat-l">Rythme</div></div>
+        <div class="stat"><div class="stat-n">Septembre 2026</div><div class="stat-l">Rentrée</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTILS -->
+<section id="outils">
+  <div class="s-label reveal">Mes outils</div>
+  <h2 class="s-title reveal reveal-d1">LOGICIELS &amp;<br>PLATEFORMES</h2>
+  <div class="tools-cats reveal reveal-d2">
+    <div class="tool-row">
+      <div class="tool-cat-name">Design graphique</div>
+      <div class="tool-items">
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/adobeillustrator.svg" style="filter:invert(1)">Illustrator</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/adobephotoshop.svg" style="filter:invert(1)">Photoshop</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/canva.svg" style="filter:invert(1)">Canva</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/gimp.svg" style="filter:invert(1)">GIMP</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/adobelightroom.svg" style="filter:invert(1)">Lightroom</span>
+      </div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-cat-name">Montage & Vidéo</div>
+      <div class="tool-items">
+        <span class="tool-chip"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d8/CapCut_logo.svg" style="filter:invert(1)">CapCut</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/adobeaftereffects.svg" style="filter:invert(1)">After Effects</span>
+      </div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-cat-name">Web & Code</div>
+      <div class="tool-items">
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/html5.svg" style="filter:invert(1)">HTML</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/css3.svg" style="filter:invert(1)">CSS</span>
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/javascript.svg" style="filter:invert(1)">JavaScript</span>
+      </div>
+    </div>
+    <div class="tool-row">
+      <div class="tool-cat-name">UI/UX</div>
+      <div class="tool-items">
+        <span class="tool-chip"><img src="https://cdn.jsdelivr.net/npm/simple-icons@v10/icons/figma.svg" style="filter:invert(1)">Figma</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="s-label reveal">Mes services</div>
+  <h2 class="s-title reveal reveal-d1">CE QUE JE<br>PROPOSE</h2>
+  <div class="services-big reveal reveal-d2">
+    <div class="svc"><div class="svc-n">01</div><div class="svc-title">Communication Print</div><p class="svc-desc">Affiches, flyers, brochures — des supports qui attirent l'œil et transmettent le message avec impact.</p></div>
+    <div class="svc"><div class="svc-n">02</div><div class="svc-title">Graphisme & Identité</div><p class="svc-desc">Logos, cartes de visite, visuels cohérents pour construire une identité forte et mémorable.</p></div>
+    <div class="svc"><div class="svc-n">03</div><div class="svc-title">Photographie</div><p class="svc-desc">Prise de vue, retouche et mise en valeur d'images pour des projets visuels ambitieux.</p></div>
+    <div class="svc"><div class="svc-n">04</div><div class="svc-title">Site Web</div><p class="svc-desc">Sites soignés en HTML/CSS/JS — une présence en ligne qui fait son effet et reflète votre identité.</p></div>
+  </div>
+  <div class="apport-block reveal">
+    <div class="apport-hl">CE QUE JE PEUX APPORTER EN ENTREPRISE</div>
+    <p class="apport-text">Dans le cadre de mon alternance en BTS ERPC, je peux intervenir à différentes étapes d'un projet de communication, de la conception à la production. Je suis capable de participer à la création de supports graphiques tels que des affiches, flyers, brochures ou contenus visuels pour le digital, en respectant une identité visuelle et les besoins du client. Je peux également contribuer à la préparation et au suivi de projets print : mise en page, préparation des fichiers pour l'impression, compréhension des contraintes techniques (formats, supports, finitions) et participation à l'organisation de la production. Grâce à ma formation, je développe aussi des compétences en analyse des besoins, rédaction de cahiers des charges, coordination des étapes de production et suivi de projet.</p>
+  </div>
+</section>
+
+<!-- CREATIONS -->
+<section id="creations">
+  <div class="s-label reveal">Mes créations</div>
+  <h2 class="s-title reveal reveal-d1">10 PROJETS<br>SÉLECTIONNÉS ✦</h2>
+  <div class="projects-mosaic reveal reveal-d2">
+
+    <!-- 01 Toyota -->
+    <div class="proj" data-idx="0">
+      <img src="images/projet-1.png" alt="Poster Toyota" width="300">
+      <div class="proj-always"><div class="proj-num">01</div><div class="proj-t">Toyota GT-86</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Poster Design</div>
+        <div class="proj-ctx">Projet perso</div>
+        <div class="proj-t">Toyota GT-86</div>
+        <div class="proj-desc">Affiche graphique automobile au style japonisant. Typographies latines et katakanas, esthétique JDM.</div>
+      </div>
+    </div>
+
+    <!-- 02 Mojito - WIDE -->
+    <div class="proj wide" data-idx="1">
+            <img src="images/projet-2.png" alt="Poster Mojito" width="300">
+      <div class="proj-always"><div class="proj-num">02</div><div class="proj-t">Composition Mojito</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Photomontage</div>
+        <div class="proj-ctx">Projet scolaire</div>
+        <div class="proj-t">Composition Mojito</div>
+        <div class="proj-desc">Photomontage tropical mettant en scène un mojito dans un décor de plage. Composition et retouche photo.</div>
+      </div>
+    </div>
+
+    <!-- 03 Crackworld - WIDE -->
+    <div class="proj wide" data-idx="2">
+            <img src="images/projet-3.png" alt="Poster Crackworld" width="300">
+      <div class="proj-always"><div class="proj-num">03</div><div class="proj-t">Welcome to the Crackworld</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Contenu Digital</div>
+        <div class="proj-ctx">Projet scolaire</div>
+        <div class="proj-t">Welcome to the Crackworld</div>
+        <div class="proj-desc">Visuel de marque pour la streetwear Crackworld. Composition photographique avec incrustation typographique urbaine.</div>
+      </div>
+    </div>
+
+    <!-- 04 Travis Scott -->
+    <div class="proj" data-idx="3">
+            <img src="images/projet-4.png" alt="Cover Travis" width="300">
+      <div class="proj-always"><div class="proj-num">04</div><div class="proj-t">Cover Travis Scott</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Cover Design</div>
+        <div class="proj-ctx">Projet perso</div>
+        <div class="proj-t">Cover — Travis Scott</div>
+        <div class="proj-desc">Couverture d'album fictive. Traitement biton, effets de brisure et typographie impactante.</div>
+      </div>
+    </div>
+
+    <!-- 05 Game Day -->
+    <div class="proj" data-idx="4">
+      <img src="images/projet-5.png" alt="Affiche GameDay" width="300">
+      <div class="proj-always"><div class="proj-num">05</div><div class="proj-t">Game Day — Sky Sports</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Communication Print</div>
+        <div class="proj-ctx">Projet perso</div>
+        <div class="proj-t">Game Day — Sky Sports</div>
+        <div class="proj-desc">Affiche événementielle sportive. Mise en page dynamique et impact visuel fort.</div>
+      </div>
+    </div>
+
+    <!-- 06 Keshi -->
+    <div class="proj" data-idx="5">
+      <img src="images/projet-6.png" alt="Poster keshi" width="300">
+      <div class="proj-always"><div class="proj-num">06</div><div class="proj-t">Poster KESHI</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Poster Design</div>
+        <div class="proj-ctx">Projet perso</div>
+        <div class="proj-t">Poster KESHI</div>
+        <div class="proj-desc">Affiche artistique dédiée au musicien Keshi. Typographie, texture, atmosphère sombre & urbaine.</div>
+      </div>
+    </div>
+
+    <!-- 07 Jujutsu Kaisen - WIDE -->
+    <div class="proj wide" data-idx="6">
+      <img src="images/projet-7.png" alt="Poster Jjk" width="300">
+      <div class="proj-always"><div class="proj-num">07</div><div class="proj-t">Poster Jujutsu Kaisen</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Graphisme Éditorial</div>
+        <div class="proj-ctx">Projet perso</div>
+        <div class="proj-t">Poster Jujutsu Kaisen</div>
+        <div class="proj-desc">Affiche éditoriale inspirée du manga. Mise en page, typographie et univers graphique japonais.</div>
+      </div>
+    </div>
+
+    <!-- 08 Bubble & Co -->
+    <div class="proj" data-idx="7">
+      <img src="images/projet-8.png" alt="Carte de Visite" width="300">
+      <div class="proj-always"><div class="proj-num">08</div><div class="proj-t">Bubble & Co</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Identité Visuelle</div>
+        <div class="proj-ctx">Projet scolaire</div>
+        <div class="proj-t">Cartes de visite — Bubble & Co</div>
+        <div class="proj-desc">Cartes de visite fictives pour un café bubble tea. Identité rouge & crème, mascotte et mise en page soignée.</div>
+      </div>
+    </div>
+
+    <!-- 09 Curio'Mag -->
+    <div class="proj" data-idx="8">
+      <img src="images/projet-9.png" alt="Magasine Curio'Mag" width="300">
+      <div class="proj-always"><div class="proj-num">09</div><div class="proj-t">Curio'Mag</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Mise en Page</div>
+        <div class="proj-ctx">Projet scolaire</div>
+        <div class="proj-t">Curio'Mag — Couverture</div>
+        <div class="proj-desc">Couverture de magazine jeunesse 6–13 ans. Mise en page éditoriale dynamique, colorée et lisible.</div>
+      </div>
+    </div>
+
+    <!-- 10 Photographie -->
+    <div class="proj" data-idx="8">
+      <img src="images/projet-10.jpeg" alt="Photographie CJD" width="300">
+      <div class="proj-always"><div class="proj-num">09</div><div class="proj-t">Curio'Mag</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Photographie</div>
+        <div class="proj-ctx">Projet stage</div>
+        <div class="proj-t">Photographie CJD 2025</div>
+        <div class="proj-desc">Projet photographique réalisé dans le cadre d'un stage chez LightLab.io</div>
+      </div>
+    </div>
+
+    <!-- 11 Photographie -->
+    <div class="proj" data-idx="8">
+      <img src="images/projet-11.jpeg" alt="Photographie CJD 2" width="300">
+      <div class="proj-always"><div class="proj-num">09</div><div class="proj-t">Curio'Mag</div></div>
+      <div class="proj-overlay">
+        <div class="proj-type">Photographie</div>
+        <div class="proj-ctx">Projet stage</div>
+        <div class="proj-t">Photographie CJD 2025</div>
+        <div class="proj-desc">Projet photographique réalisé dans le cadre d'un stage chez LightLab.io</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left reveal">
+    <div class="s-label" style="color:rgba(255,255,255,0.6)">On travaille ensemble ?</div>
+    <h2 class="s-title">EN RECHERCHE<br>D'ALTERNANCE</h2>
+    <p class="contact-sub">BTS ERPC · Études de réalisation d'un projet de communication · Rentrée septembre 2026</p>
+    <div class="contact-links">
+      <a href="mailto:lili.mekki42@gmail.com" class="contact-link">✉️ M'envoyer un mail</a>
+      <a href="https://www.linkedin.com/in/lilia-m-3894a8327/" target="_blank" class="contact-link">🔗 LinkedIn — Lilia M.</a>
+    </div>
+  </div>
+  <div class="contact-right reveal reveal-d2">
+    <div class="contact-info">
+      <div class="ci"><div class="ci-label">Email</div><div class="ci-val">lili.mekki42@gmail.com</div></div>
+      <div class="ci"><div class="ci-label">Téléphone</div><div class="ci-val">07 78 43 91 49</div></div>
+      <div class="ci"><div class="ci-label">Disponibilité</div><div class="ci-val">Septembre 2026</div></div>
+      <div class="ci"><div class="ci-label">Formation</div><div class="ci-val">BTS ERPC — Alternance</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>Lilia Mekki — Portfolio <span>2026</span></div>
+  <div>BTS ERPC · <span>2026/2028</span></div>
+</footer>
+
+<script>
+// --- CURSOR ---
+const cur = document.getElementById('cursor');
+document.addEventListener('mousemove', e => {
+  cur.style.left = e.clientX + 'px';
+  cur.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.proj,.svc,.tool-chip,.btn,.lb-arr,.lb-arr,#lb-close').forEach(el => {
+  el.addEventListener('mouseenter', () => cur.classList.add('big'));
+  el.addEventListener('mouseleave', () => cur.classList.remove('big'));
+});
+
+// --- LIGHTBOX DATA ---
+const projects = [
+  {src: 'images/projet-1.png', title: 'Toyota GT-86', sub: 'Poster Design · Projet perso'},
+  {src: 'images/projet-2.png', title: 'Composition Mojito', sub: 'Photomontage · Projet scolaire'},
+  {src: 'images/projet-3.png', title: 'Welcome to the Crackworld', sub: 'Contenu Digital · Projet scolaire'},
+  {src: 'images/projet-4.png', title: 'Cover — Travis Scott', sub: 'Cover Design · Projet perso'},
+  {src: 'images/projet-5.png', title: 'Game Day — Sky Sports', sub: 'Communication Print · Projet perso'},
+  {src: 'images/projet-6.png', title: 'Poster KESHI', sub: 'Poster Design · Projet perso'},
+  {src: 'images/projet-7.png', title: 'Poster Jujutsu Kaisen', sub: 'Graphisme · Projet perso'},
+  {src: 'images/projet-8.png', title: 'Cartes de visite — Bubble & Co', sub: 'Identité Visuelle · Projet scolaire'},
+  {src: 'images/projet-9.png', title: "Curio'Mag — Couverture", sub: 'Mise en Page · Projet scolaire'},
+  {src: 'images/projet-10.jpeg', title: "Photographie CJD 2025", sub: 'Photographie · Stage'},
+  {src: 'images/projet-11.jpeg', title: "Photographie 2 CJD 2025", sub: 'Photographie · Stage'},
+];
+
+let currentIdx = 0;
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lb-img');
+const lbTitle = document.getElementById('lb-title');
+const lbSub = document.getElementById('lb-sub');
+
+function openLightbox(idx) {
+  const p = projects[idx];
+  if (!p.src) return;
+  currentIdx = idx;
+  lbImg.src = p.src;
+  lbTitle.textContent = p.title;
+  lbSub.textContent = p.sub;
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lb.classList.remove('active');
+  document.body.style.overflow = '';
+}
+function navLightbox(dir) {
+  let next = currentIdx + dir;
+  while (next >= 0 && next < projects.length) {
+    if (projects[next].src) { openLightbox(next); return; }
+    next += dir;
+  }
+}
+
+document.querySelectorAll('.proj').forEach((el, i) => {
+  el.addEventListener('click', () => openLightbox(i));
+});
+document.getElementById('lb-close').addEventListener('click', closeLightbox);
+document.getElementById('lb-prev').addEventListener('click', () => navLightbox(-1));
+document.getElementById('lb-next').addEventListener('click', () => navLightbox(1));
+lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+document.addEventListener('keydown', e => {
+  if (!lb.classList.contains('active')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+  if (e.key === 'ArrowRight') navLightbox(1);
+});
+
+// --- SCROLL REVEAL ---
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold: 0.1, rootMargin: '0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
